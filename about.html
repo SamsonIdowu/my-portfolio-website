@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Samson Idowu — Senior Cybersecurity Engineer specializing in SIEM, Detection Engineering & Cloud Security.">
-    <meta property="og:title" content="About | Samson Idowu">
-    <meta property="og:description" content="Cybersecurity Engineer with 6+ years across SIEM, DevSecOps, and Cloud Security.">
+    <meta name="description" content="Projects and Professional Experience of Samson Idowu — Cybersecurity Engineer.">
+    <meta property="og:title" content="Projects & Experience | Samson Idowu">
+    <meta property="og:description" content="Security engineering projects, SIEM deployments, research and publications by Samson Idowu.">
     <meta property="og:type" content="website">
-    <title>About | Samson Idowu</title>
+    <title>Experience &amp; Projects | Samson Idowu</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -35,60 +35,214 @@
         </button>
         <div class="nav-links">
             <a href="index.html" class="nav-item">HOME</a>
-            <a href="about.html" class="nav-item active">ABOUT</a>
-            <a href="projects.html" class="nav-item">PROJECTS &amp; EXP</a>
+            <a href="about.html" class="nav-item">ABOUT</a>
+            <a href="projects.html" class="nav-item active">PROJECTS &amp; EXP</a>
             <a href="contact.html" class="nav-item">CONTACT</a>
         </div>
     </nav>
 
     <header class="page-header">
-        <h1>The Engineer Behind <span class="text-accent">the Firewall</span></h1>
+        <h1>Professional Experience <span class="text-accent">&amp;</span> Projects</h1>
+        <p>A comprehensive log of my security engineering roles, research initiatives, and open-source contributions.</p>
     </header>
 
-    <section class="about-section">
-        <div class="about-content">
-            <div class="about-text">
-                <p class="lead">I design and build the security infrastructure that keeps enterprises safe — at scale.</p>
-                <p>My professional journey spans <strong>6+ years</strong> across Security Engineering, Network Engineering, DevSecOps, Cloud Engineering, and IT Support — with a consistent focus on making complex security problems tractable.</p>
-                <p>At <strong>Wazuh Inc.</strong>, I architect enterprise-scale SIEM solutions across multi-cloud environments, develop detection rules mapped to MITRE ATT&CK, and author technical content serving <strong>100,000+ security professionals</strong> worldwide.</p>
-                <p>My academic research at <strong>Innopolis University</strong> included forensic investigation on memory dumps, offensive security research, threat modeling with STRIDE, and CI/CD pipeline security integration — bridging theory and real-world application.</p>
-                <p>I hold an <strong>M.Sc. in Computer Science</strong> (Computer Security and Networks track) from Innopolis University and a <strong>B.Eng. in Computer Engineering</strong> from the University of Uyo.</p>
-                <div class="about-cta">
-                    <a href="projects.html" class="btn btn-primary">View My Experience</a>
-                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-                    <a href="mailto:mailtosamsoni@gmail.com">
-                        <button class="cv-download-btn"><i class="fas fa-envelope"></i> Email Me</button>
-                    </a>
+    <div class="main-wrapper">
+
+        <!-- CURRENT ROLE -->
+        <section class="section-block scroll-animate">
+            <h2 class="section-title"><i class="fas fa-shield-alt"></i> Featured Security Engineering Work</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Security Engineer — Enterprise SIEM & Detection</h3>
+                            <span class="company-name">@ Wazuh Inc.</span>
+                            <span class="timeline-date">May 2023 – Present &nbsp;·&nbsp; San Jose</span>
+                        </div>
+                        <div class="role-description">
+                            <p><strong><i class="fas fa-crosshairs"></i> Detection Engineering:</strong> Developing MITRE ATT&amp;CK-mapped detection rules using PCRE/PCRE2 regex, enhancing threat detection coverage by <strong>45%</strong>.</p>
+                        </div>
+                        <div class="project-list-block">
+                            <strong><i class="fas fa-code-branch"></i> Key Deliverables:</strong>
+                            <ul>
+                                <li><strong>SIEM Architecture:</strong> Architected enterprise-scale Wazuh SIEM across multi-cloud environments aligned with NIST 800-53 controls.</li>
+                                <li><strong>Cloud Infrastructure:</strong> Designed 99.9% availability security infrastructure using Terraform, Ansible, EKS, and CloudFormation.</li>
+                                <li><strong>Documentation:</strong> Authored official docs and blog posts serving 100,000+ Wazuh users on SIEM configuration and security monitoring.</li>
+                                <li><strong>Automation:</strong> Automated infrastructure deployments and workflows, reducing manual effort by 60%.</li>
+                                <li><strong>Malware Analysis:</strong> Performed threat intelligence analysis identifying IOCs and TTPs contributing to Wazuh CTI.</li>
+                                <li><strong>Compliance:</strong> Ensured deployments comply with NIST, ISO 27001, and CIS Benchmarks, supporting customer audits.</li>
+                                <li><strong>CIS Baselines:</strong> Created security baseline configurations for Linux, Windows, and macOS monitored by Wazuh SIEM.</li>
+                            </ul>
+                            <div class="project-actions">
+                                <button class="btn btn-primary" onclick="openModal('siem_arch')"><i class="fas fa-code"></i> View Architecture</button>
+                                <a href="https://github.com/SamsonIdowu/projects-publications/blob/main/publications.md" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-book"></i> Publications</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="about-highlight">
-                <div class="highlight-card">
-                    <h3>Quick Facts</h3>
-                    <ul>
-                        <li><strong>Education</strong><span>M.Sc. Computer Science</span></li>
-                        <li><strong>Current Role</strong><span>Security Engineer @ Wazuh</span></li>
-                        <li><strong>Key Tech</strong><span>Wazuh, Terraform, AWS, PCRE2</span></li>
-                        <li><strong>Location</strong><span>Abuja, Nigeria</span></li>
-                        <li><strong>Phone</strong><span>+234 703 284 4735</span></li>
-                        <li><strong>Availability</strong><span class="status-available">Open to Opportunities</span></li>
-                    </ul>
+        <!-- PROFESSIONAL TIMELINE -->
+        <section class="section-block scroll-animate">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Timeline</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Security Researcher</h3>
+                            <span class="company-name">@ Innopolis University</span>
+                            <span class="timeline-date">Aug 2022 – May 2024 &nbsp;·&nbsp; Innopolis</span>
+                        </div>
+                        <div class="role-description">
+                            <p><strong><i class="fas fa-flask"></i> Research Focus:</strong> Offensive security research, memory forensics, and DevSecOps pipeline integration.</p>
+                        </div>
+                        <div class="project-list-block">
+                            <strong><i class="fas fa-code-branch"></i> Key Work:</strong>
+                            <ul>
+                                <li><strong>Memory Forensics:</strong> Carried out forensic investigation on memory dumps.</li>
+                                <li><strong>Botnet Research:</strong> Built a botnet for offensive security research using BYOB framework.</li>
+                                <li><strong>Threat Modeling:</strong> Performed threat modeling with STRIDE methodology using Microsoft Threat Modelling Tool.</li>
+                                <li><strong>Cloud Infrastructure:</strong> Built resilient cloud infrastructure using EC2, VPC, EKS, S3, and CloudWatch across multiple AWS regions.</li>
+                                <li><strong>Penetration Testing:</strong> Participated in pen tests on start-up applications deployed within Innopolis SEZ.</li>
+                                <li><strong>CI/CD Security:</strong> Integrated SAST/DAST checks in CI/CD pipelines using Snyk, SonarQube, and StackHawk — remediated vulnerabilities by 35%.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="highlight-card" style="margin-top:1.5rem;">
-                    <h3>Certifications</h3>
-                    <ul>
-                        <li><strong>AWS Solutions Architect</strong><span style="color:var(--accent-color);font-size:0.8rem;">Associate • 12/24</span></li>
-                        <li><strong>CNSP — SecOps</strong><span style="color:var(--accent-color);font-size:0.8rem;">11/24</span></li>
-                        <li><strong>NSE 1, 2 &amp; 3 — Fortinet</strong><span style="color:var(--accent-color);font-size:0.8rem;">03/22</span></li>
-                        <li><strong>SC-900 — Microsoft</strong><span style="color:var(--accent-color);font-size:0.8rem;">07/21</span></li>
-                        <li><strong>Azure Fundamentals</strong><span style="color:var(--accent-color);font-size:0.8rem;">07/21</span></li>
-                        <li><strong>Security+ — CompTIA</strong><span style="color:var(--accent-color);font-size:0.8rem;">05/21</span></li>
-                    </ul>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Infrastructure Security Engineer</h3>
+                            <span class="company-name">@ Hardcore Biometric Systems</span>
+                            <span class="timeline-date">Nov 2021 – Jul 2022 &nbsp;·&nbsp; Abuja</span>
+                        </div>
+                        <div class="role-description">
+                            <p><strong><i class="fas fa-server"></i> Infrastructure Security:</strong> Administered and secured enterprise environments across VMware ESXi and AWS.</p>
+                        </div>
+                        <div class="project-list-block">
+                            <strong><i class="fas fa-code-branch"></i> Key Deliverables:</strong>
+                            <ul>
+                                <li><strong>Server Management:</strong> Administered Windows and Linux security environments managing 200+ servers and endpoints.</li>
+                                <li><strong>SIEM/IDS/IPS:</strong> Implemented and managed SIEM, IDS/IPS, firewall, and vulnerability management solutions, improving security visibility by 55%.</li>
+                                <li><strong>Patch Compliance:</strong> Conducted vulnerability assessments and patch management, maintaining 95% compliance across all systems.</li>
+                                <li><strong>DevOps:</strong> Supported deployments using Jenkins, Kubernetes, and Docker, reducing deployment time by 50%.</li>
+                                <li><strong>Incident Response:</strong> Responded to PRTG, SIEM alerts within SLA, achieving 98% incident resolution rate.</li>
+                                <li><strong>Log Infrastructure:</strong> Maintained log aggregation infrastructure ensuring 99% uptime for compliance reporting.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Technical Support Engineer</h3>
+                            <span class="company-name">@ Zeta-Web</span>
+                            <span class="timeline-date">Aug 2019 – Oct 2021 &nbsp;·&nbsp; Abuja</span>
+                        </div>
+                        <div class="project-list-block">
+                            <strong><i class="fas fa-code-branch"></i> Key Deliverables:</strong>
+                            <ul>
+                                <li>Administered Linux and Windows servers, Active Directory, DNS, DHCP, and print services for enterprise clients.</li>
+                                <li>Maintained asset inventory of 700+ systems ensuring accurate tracking and compliance reporting.</li>
+                                <li>Ensured system patch compliance at 95% across 400+ endpoints, reducing vulnerability exposure.</li>
+                                <li>Monitored network performance using PRTG, WhatsUp Gold, and Riverbed SteelHead, reducing downtime by 65%.</li>
+                                <li>Implemented baseline configurations and upgrades on firewalls, load balancers, proxies, and servers.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>IT Technician</h3>
+                            <span class="company-name">@ Multichoice</span>
+                            <span class="timeline-date">Dec 2018 – Aug 2019 &nbsp;·&nbsp; Port Harcourt</span>
+                        </div>
+                        <div class="project-list-block">
+                            <strong><i class="fas fa-code-branch"></i> Key Deliverables:</strong>
+                            <ul>
+                                <li>Provided technical support to 140+ end users, reducing business downtime by 60%.</li>
+                                <li>Coordinated with third-party vendors for timely resolution of LAN, WAN, and VSAT network issues.</li>
+                                <li>Created detailed documentation of all IT procedures used in the organisation.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- PROJECTS GRID -->
+        <section class="section-block scroll-animate">
+            <h2 class="section-title"><i class="fas fa-code"></i> Notable Projects</h2>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="security">Security</button>
+                <button class="filter-tab" data-filter="cloud">Cloud</button>
+                <button class="filter-tab" data-filter="research">Research</button>
+            </div>
+            <div class="grid-container" style="padding:0; max-width:100%;">
+                <div class="glow-card scroll-animate" data-category="security">
+                    <div class="card-content">
+                        <h3>Detection Rule Library</h3>
+                        <p class="tech-stack">PCRE/PCRE2 &bull; MITRE ATT&amp;CK &bull; Wazuh</p>
+                        <p>MITRE ATT&CK-mapped Wazuh detection rules using PCRE/PCRE2 regex for threat detection — 45% coverage improvement.</p>
+                        <button class="card-btn" onclick="openModal('detection_rules')">View Details</button>
+                    </div>
+                </div>
+                <div class="glow-card scroll-animate" data-category="cloud">
+                    <div class="card-content">
+                        <h3>Multi-Cloud SIEM Deployment</h3>
+                        <p class="tech-stack">Terraform &bull; AWS EKS &bull; Ansible &bull; CloudFormation</p>
+                        <p>Enterprise-scale SIEM infrastructure with 99.9% availability, aligned with NIST 800-53 security controls.</p>
+                        <button class="card-btn" onclick="openModal('siem_arch')">View Details</button>
+                    </div>
+                </div>
+                <div class="glow-card scroll-animate" data-category="research">
+                    <div class="card-content">
+                        <h3>Memory Forensics Research</h3>
+                        <p class="tech-stack">Volatility &bull; STRIDE &bull; DFD &bull; BYOB</p>
+                        <p>Forensic investigation on memory dumps and botnet research for offensive security at Innopolis University.</p>
+                        <button class="card-btn" onclick="openModal('forensics')">View Details</button>
+                    </div>
+                </div>
+                <div class="glow-card scroll-animate" data-category="security">
+                    <div class="card-content">
+                        <h3>CI/CD Security Pipeline</h3>
+                        <p class="tech-stack">Snyk &bull; SonarQube &bull; StackHawk &bull; Jenkins</p>
+                        <p>Integrated SAST/DAST security tests in CI/CD pipelines, identifying and remediating code vulnerabilities by 35%.</p>
+                        <button class="card-btn" onclick="openModal('cicd')">View Details</button>
+                    </div>
+                </div>
+                <div class="glow-card scroll-animate" data-category="research">
+                    <div class="card-content">
+                        <h3>Publications &amp; Documentation</h3>
+                        <p class="tech-stack">Technical Writing &bull; Security Research &bull; Wazuh Docs</p>
+                        <p>Official Wazuh documentation and blog posts serving 100,000+ security professionals on SIEM configuration.</p>
+                        <a href="https://github.com/SamsonIdowu/projects-publications/blob/main/publications.md" target="_blank" rel="noopener noreferrer"><button class="card-btn">View All</button></a>
+                    </div>
+                </div>
+                <div class="glow-card scroll-animate" data-category="cloud">
+                    <div class="card-content">
+                        <h3>Security Baseline Configurations</h3>
+                        <p class="tech-stack">CIS Benchmarks &bull; Linux &bull; Windows &bull; macOS</p>
+                        <p>Security baseline configs mapped to CIS Benchmarks for Linux, Windows, and macOS systems monitored by Wazuh SIEM.</p>
+                        <button class="card-btn" onclick="openModal('baselines')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
@@ -101,6 +255,151 @@
         </div>
     </footer>
 
+    <!-- MODAL -->
+    <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()" aria-label="Close">&times;</button>
+            <h2 id="modalTitle" style="padding:2.5rem 2.5rem 0;"></h2>
+            <div class="modal-body">
+                <div id="modalDescription"></div>
+                <div class="code-block" id="modalCodeBlock"></div>
+                <div class="modal-link-container">
+                    <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer">View Repository <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+    const projectData = {
+        'siem_arch': {
+            title: 'Multi-Cloud SIEM Architecture',
+            desc: `<strong>Overview:</strong><br>Enterprise-scale Wazuh SIEM deployment across AWS multi-region infrastructure.<br><br><strong>Achievements:</strong><ul><li>99.9% availability using Terraform, Ansible, EKS, CloudFormation</li><li>NIST 800-53 aligned security reference architectures</li><li>Multi-site data flow diagrams and integration patterns</li><li>Tier 3 technical support for enterprise customers</li></ul>`,
+            code: `# Terraform — Wazuh EKS Cluster
+resource "aws_eks_cluster" "wazuh_siem" {
+  name     = "wazuh-enterprise"
+  role_arn = aws_iam_role.cluster_role.arn
+  vpc_config {
+    subnet_ids              = var.private_subnet_ids
+    endpoint_private_access = true
+    endpoint_public_access  = false
+  }
+  encryption_config {
+    resources = ["secrets"]
+    provider { key_arn = aws_kms_key.eks.arn }
+  }
+}`,
+            link: 'https://github.com/SamsonIdowu'
+        },
+        'detection_rules': {
+            title: 'MITRE ATT&CK Detection Rule Library',
+            desc: `<strong>Overview:</strong><br>Wazuh SIEM detection rules mapped to MITRE ATT&CK techniques using PCRE/PCRE2 regex.<br><br><strong>Impact:</strong> 45% enhancement in threat detection coverage<br><br><strong>Coverage includes:</strong><ul><li>T1059 — Command and Scripting Interpreter</li><li>T1078 — Valid Accounts</li><li>T1486 — Data Encrypted for Impact</li><li>T1190 — Exploit Public-Facing Application</li></ul>`,
+            code: `<!-- Wazuh Rule — T1059.001 PowerShell -->
+<rule id="100100" level="12">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.commandLine"
+    type="pcre2">(?i)(-enc|-EncodedCommand|-nop|-NonInteractive)
+  </field>
+  <description>Encoded PowerShell — T1059.001</description>
+  <mitre><id>T1059.001</id></mitre>
+  <group>attack,execution,powershell</group>
+</rule>`,
+            link: 'https://github.com/SamsonIdowu/projects-publications/blob/main/publications.md'
+        },
+        'forensics': {
+            title: 'Memory Forensics & Offensive Security Research',
+            desc: `<strong>Overview:</strong><br>Academic research at Innopolis University covering memory forensics, offensive security, and threat modeling.<br><br><strong>Activities:</strong><ul><li>Memory dump forensic investigations using Volatility framework</li><li>Built a C2 botnet for offensive research using BYOB</li><li>Threat modeling with STRIDE methodology</li><li>DFD creation using Microsoft Threat Modelling Tool</li><li>Pen tests on start-up applications within Innopolis SEZ</li></ul>`,
+            code: `# Volatility — Memory Forensics
+import volatility.framework as vf
+from volatility.plugins.windows import pslist
+
+# List running processes from memory dump
+ctx = contexts.Context()
+config_path = "plugins.windows.PsList"
+plugin = pslist.PsList(ctx, config_path)
+
+for proc in plugin.run():
+    print(f"PID: {proc.UniqueProcessId}  "
+          f"Name: {proc.ImageFileName}")`,
+            link: 'https://github.com/SamsonIdowu'
+        },
+        'cicd': {
+            title: 'DevSecOps — CI/CD Security Pipeline',
+            desc: `<strong>Overview:</strong><br>SAST/DAST security integration in CI/CD pipelines at Innopolis University.<br><br><strong>Tools integrated:</strong><ul><li><strong>Snyk</strong> — Dependency and container vulnerability scanning</li><li><strong>SonarQube</strong> — Static code analysis (SAST)</li><li><strong>StackHawk</strong> — Dynamic API security testing (DAST)</li><li><strong>Jenkins</strong> — Pipeline orchestration</li></ul><br><strong>Impact:</strong> 35% reduction in code vulnerabilities identified and remediated.`,
+            code: `# Jenkins Pipeline — Security Checks
+pipeline {
+  stages {
+    stage('SAST — SonarQube') {
+      steps {
+        withSonarQubeEnv('sonar') {
+          sh 'mvn sonar:sonar'
+        }
+      }
+    }
+    stage('Dependency Scan — Snyk') {
+      steps {
+        sh 'snyk test --severity-threshold=high'
+      }
+    }
+    stage('DAST — StackHawk') {
+      steps {
+        sh 'hawk scan hawkconfig.yml'
+      }
+    }
+  }
+}`,
+            link: 'https://github.com/SamsonIdowu'
+        },
+        'baselines': {
+            title: 'CIS Benchmark Security Baselines',
+            desc: `<strong>Overview:</strong><br>Security baseline configurations mapped to CIS Benchmarks for multi-platform monitoring.<br><br><strong>Coverage:</strong><ul><li><strong>Linux</strong> — Ubuntu/CentOS/RHEL CIS Level 1 &amp; 2</li><li><strong>Windows</strong> — Server 2019/2022 CIS Benchmark</li><li><strong>macOS</strong> — macOS Ventura CIS Benchmark</li></ul><br>All baselines integrated with Wazuh SIEM for continuous compliance monitoring and automated alerting.`,
+            code: `# Wazuh — CIS Benchmark SCA Policy
+policy:
+  id: "cis_ubuntu_22"
+  file: "cis_ubuntu_linux_22.yml"
+  name: "CIS Benchmark Ubuntu 22.04"
+  description: "CIS Ubuntu Linux 22.04 LTS Benchmark v1.0"
+
+checks:
+  - id: 1000
+    title: "Ensure /tmp is a separate partition"
+    condition: any
+    rules:
+      - 'c:/etc/fstab -> r:/tmp'`,
+            link: 'https://github.com/SamsonIdowu'
+        }
+    };
+    window.openModal = function(id) {
+        const data = projectData[id]; if (!data) return;
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalDescription').innerHTML = data.desc;
+        const link = document.getElementById('modalLink');
+        link.href = data.link; link.style.display = data.link === '#' ? 'none' : 'inline-flex';
+        let code = data.code.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')
+            .replace(/(resource|def|import|from|return|class|stage|steps|pipeline|policy|checks|print)\b/g,'<span class="code-keyword">$1</span>');
+        document.getElementById('modalCodeBlock').innerHTML = '<code>' + code + '</code>';
+        document.getElementById('projectModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    };
+    window.closeModal = function() {
+        document.getElementById('projectModal').style.display = 'none';
+        document.body.style.overflow = '';
+    };
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    document.getElementById('projectModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+
+    // Filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const filter = tab.dataset.filter;
+            document.querySelectorAll('.glow-card[data-category]').forEach(card => {
+                card.classList.toggle('hidden-card', filter !== 'all' && card.dataset.category !== filter);
+            });
+        });
+    });
+    </script>
 </body>
 </html>
