@@ -6,9 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    --bg-darkest: #020c18;
-    --bg-secondary: #040f20;
-    --bg-card: rgba(4, 15, 32, 0.6);
+    --bg-darkest: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-card: rgba(0, 0, 0, 0.6);
     --text-primary: #d0e8f5;
     --text-secondary: #6a90b0;
     --accent-color: #38bdf8;
@@ -19,7 +19,7 @@
     --success-color: #38bdf8;
     --error-color: #ef4444;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --glass-bg: rgba(4, 15, 32, 0.55);
+    --glass-bg: rgba(0, 0, 0, 0.55);
     --glass-border: rgba(56, 189, 248, 0.1);
     --glass-border-hover: rgba(56, 189, 248, 0.38);
     --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.04);
@@ -501,4 +501,4 @@ nav {
     .footer-content { flex-direction:column; text-align:center; }
     .page-header { padding:110px 6% 50px; }
     .stats-section { gap:3rem; }
-}s
+}
