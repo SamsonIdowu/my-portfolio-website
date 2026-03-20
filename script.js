@@ -290,9 +290,10 @@
         { label: 'Network Security', val: 0.85 }
     ];
 
-    const cx = 160, cy = 160, R = 110, n = skills.length;
-    const green = '#38bdf8';
-    const greenDim = '#0284c7';
+    const cx = 200, cy = 200, R = 100, n = skills.length;
+    const blue = '#38bdf8';
+
+    svg.setAttribute('viewBox', '0 0 400 400');
 
     function pt(i, r) {
         const a = (Math.PI * 2 * i / n) - Math.PI / 2;
@@ -315,19 +316,19 @@
 
     // Data polygon
     const dataPts = skills.map((s, i) => pt(i, R * s.val).join(',')).join(' ');
-    html += `<polygon points="${dataPts}" fill="rgba(56,189,248,0.1)" stroke="${green}" stroke-width="1.5"/>`;
+    html += `<polygon points="${dataPts}" fill="rgba(56,189,248,0.1)" stroke="${blue}" stroke-width="1.5"/>`;
 
     // Dots
     skills.forEach((s, i) => {
         const [x, y] = pt(i, R * s.val);
-        html += `<circle cx="${x}" cy="${y}" r="4" fill="${green}" filter="url(#glow)"/>`;
+        html += `<circle cx="${x}" cy="${y}" r="4" fill="${blue}" filter="url(#glow)"/>`;
     });
 
     // Labels
     skills.forEach((s, i) => {
-        const [x, y] = pt(i, R + 22);
+        const [x, y] = pt(i, R + 32);
         const anchor = x < cx - 5 ? 'end' : x > cx + 5 ? 'start' : 'middle';
-        html += `<text x="${x}" y="${y}" text-anchor="${anchor}" dominant-baseline="middle" fill="rgba(212,236,212,0.6)" font-size="9" font-family="JetBrains Mono, monospace">${s.label}</text>`;
+        html += `<text x="${x}" y="${y}" text-anchor="${anchor}" dominant-baseline="middle" fill="rgba(208,232,245,0.75)" font-size="10" font-family="JetBrains Mono, monospace">${s.label}</text>`;
     });
 
     svg.innerHTML = `
