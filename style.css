@@ -169,7 +169,7 @@ nav {
     object-fit:cover; object-position: center 20%; border-radius:50%;
     border: 2px solid rgba(56,189,248,0.25);
     box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(56,189,248,0.08);
-    animation: float 7s ease-in-out infinite; display:block;
+    animation: float 7s ease-in-out 1.1s infinite; display:block;
 }
 
 .hero-buttons { display:flex; gap:16px; flex-wrap:wrap; }
