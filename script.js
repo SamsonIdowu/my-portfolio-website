@@ -72,12 +72,12 @@
 
         draw() {
             const alpha = this.isHot ? Math.min(this.opacity * 1.8, 0.9) : this.opacity;
-            const color = this.isHot ? `rgba(57, 255, 20, ${alpha})` : `rgba(26, 180, 10, ${alpha})`;
+            const color = this.isHot ? `rgba(56, 189, 248, ${alpha})` : `rgba(14, 165, 233, ${alpha})`;
 
             ctx.save();
             if (this.isHot) {
                 ctx.shadowBlur = 10;
-                ctx.shadowColor = 'rgba(57, 255, 20, 0.6)';
+                ctx.shadowColor = 'rgba(56, 189, 248, 0.6)';
             }
             ctx.fillStyle = color;
             ctx.beginPath();
@@ -103,9 +103,9 @@
                     const gradient = ctx.createLinearGradient(
                         particles[a].x, particles[a].y, particles[b].x, particles[b].y
                     );
-                    gradient.addColorStop(0, `rgba(57, 255, 20, ${alpha})`);
-                    gradient.addColorStop(0.5, `rgba(26, 173, 0, ${alpha * 0.6})`);
-                    gradient.addColorStop(1, `rgba(57, 255, 20, ${alpha})`);
+                    gradient.addColorStop(0, `rgba(56, 189, 248, ${alpha})`);
+                    gradient.addColorStop(0.5, `rgba(2, 132, 199, ${alpha * 0.6})`);
+                    gradient.addColorStop(1, `rgba(56, 189, 248, ${alpha})`);
 
                     ctx.strokeStyle = gradient;
                     ctx.lineWidth = isHotLink ? 1.2 : 0.7;
@@ -291,8 +291,8 @@
     ];
 
     const cx = 160, cy = 160, R = 110, n = skills.length;
-    const green = '#39ff14';
-    const greenDim = '#1aad00';
+    const green = '#38bdf8';
+    const greenDim = '#0284c7';
 
     function pt(i, r) {
         const a = (Math.PI * 2 * i / n) - Math.PI / 2;
@@ -304,18 +304,18 @@
     // Grid circles
     [0.25, 0.5, 0.75, 1].forEach(s => {
         const pts = skills.map((_, i) => pt(i, R * s).join(',')).join(' ');
-        html += `<polygon points="${pts}" fill="none" stroke="rgba(57,255,20,0.12)" stroke-width="1"/>`;
+        html += `<polygon points="${pts}" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="1"/>`;
     });
 
     // Axes
     skills.forEach((_, i) => {
         const [x, y] = pt(i, R);
-        html += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(57,255,20,0.1)" stroke-width="1"/>`;
+        html += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>`;
     });
 
     // Data polygon
     const dataPts = skills.map((s, i) => pt(i, R * s.val).join(',')).join(' ');
-    html += `<polygon points="${dataPts}" fill="rgba(57,255,20,0.1)" stroke="${green}" stroke-width="1.5"/>`;
+    html += `<polygon points="${dataPts}" fill="rgba(56,189,248,0.1)" stroke="${green}" stroke-width="1.5"/>`;
 
     // Dots
     skills.forEach((s, i) => {
