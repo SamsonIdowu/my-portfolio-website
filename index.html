@@ -1,310 +1,1199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samson Idowu - Senior Cybersecurity Engineer. SIEM, Detection Engineering, DevSecOps & Cloud Security.">
-    <meta property="og:title" content="Samson Idowu | Cybersecurity Engineer">
-    <meta property="og:description" content="Senior Cybersecurity Engineer with 6+ years of experience. SIEM solutions, Detection Engineering & Cloud Security.">
-    <meta property="og:type" content="website">
-    <title>Samson Idowu | Cybersecurity Engineer</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Samson Idowu &mdash; Cybersecurity Engineer</title>
+<meta name="description" content="Samson Idowu &mdash; Senior Cybersecurity Engineer. SIEM, detection engineering, DevSecOps and cloud security." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:        #0a0e14;
+    --bg-grid:   rgba(45,212,191,0.045);
+    --surface:   #111722;
+    --surface-2: #161e2b;
+    --border:    #1f2937;
+    --border-hi: #2c3a4d;
+    --text:      #e6edf3;
+    --muted:     #8b97a6;
+    --faint:     #5b6675;
+    --accent:    #2dd4bf;
+    --accent-dk: #14b8a6;
+    --amber:     #fbbf24;
+    --display: "Space Grotesk", system-ui, sans-serif;
+    --body:    "Inter", system-ui, sans-serif;
+    --mono:    "JetBrains Mono", ui-monospace, monospace;
+    --maxw: 1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+      linear-gradient(var(--bg-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: -1px -1px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- log-tag eyebrow ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(45,212,191,0.15);
+  }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(10,14,20,0.72);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s;
+  }
+  nav.scrolled { border-bottom: 1px solid var(--border); }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 16px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--text); }
+  .brand .sigil { color: var(--accent); }
+  .brand .cursor { color: var(--accent); animation: blink 1.2s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a {
+    font-family: var(--mono); font-size: 13px; color: var(--muted);
+    transition: color .2s; position: relative;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -5px; width: 0; height: 1px;
+    background: var(--accent); transition: width .25s;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  @media (max-width: 620px) { .nav-links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 96px 0 72px; position: relative; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;
+  }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.7rem, 6vw, 4.1rem);
+    font-weight: 700; line-height: 1.02; letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .hero h1 .stroke { color: var(--accent); }
+  .hero .role {
+    font-size: 1.06rem; color: var(--muted); max-width: 42ch; margin-bottom: 30px;
+  }
+  .hero .role b { color: var(--text); font-weight: 600; }
+
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+  .btn {
+    font-family: var(--mono); font-size: 13.5px; font-weight: 500;
+    padding: 12px 22px; border-radius: 8px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 9px;
+    transition: transform .18s, background .2s, border-color .2s, color .2s;
+    border: 1px solid var(--border-hi);
+  }
+  .btn-primary { background: var(--accent); color: #06231f; border-color: var(--accent); }
+  .btn-primary:hover { transform: translateY(-2px); background: #5fe5d4; }
+  .btn-ghost { background: transparent; color: var(--text); }
+  .btn-ghost:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
+
+  .socials { display: flex; gap: 18px; }
+  .socials a {
+    font-family: var(--mono); font-size: 13px; color: var(--faint);
+    display: inline-flex; align-items: center; gap: 7px; transition: color .2s;
+  }
+  .socials a:hover { color: var(--accent); }
+  .socials svg { width: 16px; height: 16px; }
+
+  /* ---------- detection-rule card ---------- */
+  .rule-card {
+    background: linear-gradient(180deg, var(--surface), #0d131c);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-family: var(--mono); font-size: 13px;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8), 0 0 0 1px rgba(45,212,191,0.04);
+    overflow: hidden;
+  }
+  .rule-head {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.015);
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+  .rule-head .fname { margin-left: 10px; color: var(--faint); font-size: 12px; }
+  .rule-body { padding: 20px 18px; line-height: 1.85; }
+  .rule-body .ln { display: block; white-space: pre-wrap; }
+  .k { color: var(--accent); }
+  .v { color: var(--text); }
+  .c { color: var(--faint); }
+  .arr { color: var(--muted); }
+  .lvl { color: var(--amber); }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+    padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    background: rgba(45,212,191,0.1); color: var(--accent);
+    border: 1px solid rgba(45,212,191,0.25);
+  }
+  .status .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    animation: pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(45,212,191,0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(45,212,191,0); }
+    100% { box-shadow: 0 0 0 0 rgba(45,212,191,0); }
+  }
+
+  /* ---------- stats ---------- */
+  .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 34px 24px; border-right: 1px solid var(--border); position: relative; overflow: hidden; }
+  .stat:last-child { border-right: none; }
+  .stat::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--accent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .stat.counted::after { transform: scaleX(1); }
+  .stat .num {
+    font-family: var(--display); font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 700; color: var(--text); letter-spacing: -0.02em; line-height: 1;
+  }
+  .stat .num .suf { color: var(--accent); }
+  @keyframes num-pop {
+    0%   { transform: scale(1); }
+    45%  { transform: scale(1.07); }
+    100% { transform: scale(1); }
+  }
+  .stat.counted .num { animation: num-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .stat .lbl {
+    font-family: var(--mono); font-size: 11.5px; color: var(--muted);
+    margin-top: 10px; letter-spacing: 0.03em;
+  }
+  @media (max-width: 720px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border); }
+  }
+
+  /* ---------- sections ---------- */
+  .section { padding: 84px 0; }
+  .section-head { margin-bottom: 44px; max-width: 620px; }
+  .section-head h2 {
+    font-family: var(--display); font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
+  }
+  .section-head p { color: var(--muted); margin-top: 14px; }
+
+  /* ---------- capability cards ---------- */
+  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .cap-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 1020px) { .cap-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 820px) { .cap-grid { grid-template-columns: 1fr; } .cap-grid-4 { grid-template-columns: 1fr; } }
+  .cap {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 26px 24px; transition: transform .25s, border-color .25s;
+    position: relative; overflow: hidden;
+  }
+  .cap::before {
+    content: ""; position: absolute; left: 0; top: 0; height: 100%; width: 3px;
+    background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .3s;
+  }
+  .cap:hover { transform: translateY(-4px); border-color: var(--border-hi); }
+  .cap:hover::before { transform: scaleY(1); }
+  .cap .tag { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.05em; }
+  .cap h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 600; margin: 12px 0 10px; }
+  .cap p { font-size: 0.93rem; color: var(--muted); }
+  .cap .stack { font-family: var(--mono); font-size: 11.5px; color: var(--faint); margin-top: 16px; }
+
+  /* ---------- featured project ---------- */
+  .features-list { display: flex; flex-direction: column; gap: 18px; }
+  .feature {
+    background: linear-gradient(160deg, var(--surface), #0c121b);
+    border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    display: grid; grid-template-columns: 1.15fr 1fr;
+  }
+  .feature.solo { grid-template-columns: 1fr; }
+  @media (max-width: 880px) { .feature { grid-template-columns: 1fr; } }
+  .feature-main { padding: 38px 34px; border-right: 1px solid var(--border); }
+  .feature.solo .feature-main { border-right: none; }
+  @media (max-width: 880px) { .feature-main { border-right: none; border-bottom: 1px solid var(--border); } }
+  .feat-tag { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.05em; display: block; margin-bottom: 12px; }
+  .feat-wip { font-family: var(--mono); font-size: 11px; color: var(--amber); border: 1px solid rgba(251,191,36,0.35); padding: 2px 8px; border-radius: 5px; vertical-align: middle; margin-left: 8px; }
+  .feature h3 {
+    font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.1;
+  }
+  .feature .lede { color: var(--muted); font-size: 0.97rem; margin-bottom: 22px; max-width: 46ch; }
+  .feature .stack { font-family: var(--mono); font-size: 12px; color: var(--faint); line-height: 1.9; margin-bottom: 26px; }
+  .feature .stack b { color: var(--accent); font-weight: 500; }
+
+  .labs { font-family: var(--mono); font-size: 12.5px; }
+  .labs .lhead { padding: 38px 34px 16px; color: var(--faint); font-size: 11px; letter-spacing: 0.08em; }
+  .lab {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 11px 34px; line-height: 1.45;
+  }
+  .lab .box { flex-shrink: 0; width: 16px; color: var(--faint); }
+  .lab.done .box { color: var(--accent); }
+  .lab.next .box { color: var(--amber); }
+  .lab .ltext { color: var(--muted); }
+  .lab.done .ltext { color: var(--text); }
+  .lab .lname { color: var(--faint); }
+  .lab.done .lname, .lab.next .lname { color: inherit; }
+  .progress-bar { margin: 14px 34px 32px; height: 4px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+  .progress-bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 4px; transition: width 1.2s ease; }
+
+  /* ---------- publication filters ---------- */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+  .filter {
+    font-family: var(--mono); font-size: 12.5px; color: var(--muted);
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 8px 15px; border-radius: 20px; cursor: pointer; transition: all .2s;
+  }
+  .filter:hover { color: var(--text); border-color: var(--border-hi); }
+  .filter.active { background: rgba(45,212,191,0.12); color: var(--accent); border-color: rgba(45,212,191,0.4); }
+  .filter .count { color: var(--faint); margin-left: 5px; }
+  .filter.active .count { color: var(--accent); }
+
+  .pub-list { display: flex; flex-direction: column; }
+  .pub {
+    display: flex; align-items: center; gap: 18px;
+    padding: 18px 4px; border-bottom: 1px solid var(--border);
+    transition: padding .25s, background .25s; position: relative;
+  }
+  .pub:hover { padding-left: 14px; background: linear-gradient(90deg, rgba(45,212,191,0.04), transparent 60%); }
+  .pub .src {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em;
+    padding: 4px 9px; border-radius: 5px; white-space: nowrap; flex-shrink: 0;
+    width: 96px; text-align: center;
+  }
+  .src.academic { color: #c4b5fd; background: rgba(167,139,250,0.12); }
+  .src.docs     { color: var(--accent); background: rgba(45,212,191,0.1); }
+  .src.article  { color: #93c5fd; background: rgba(96,165,250,0.12); }
+  .src.project  { color: var(--amber); background: rgba(251,191,36,0.1); }
+  .pub .title { flex: 1; font-size: 0.97rem; font-weight: 500; color: var(--text); transition: color .2s; }
+  .pub:hover .title { color: var(--accent); }
+  .pub .wip { font-family: var(--mono); font-size: 10px; color: var(--amber); border: 1px solid rgba(251,191,36,0.4); padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+  .pub .go { color: var(--faint); flex-shrink: 0; transition: transform .2s, color .2s; }
+  .pub:hover .go { color: var(--accent); transform: translate(2px,-2px); }
+  .pub.hide { display: none; }
+  @media (max-width: 600px) {
+    .pub { flex-wrap: wrap; gap: 10px; }
+    .pub .src { width: auto; }
+    .pub .title { flex-basis: 100%; order: 3; }
+  }
+
+  /* ---------- skills & arsenal ---------- */
+  .ars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  @media (max-width: 820px) { .ars-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 540px) { .ars-grid { grid-template-columns: 1fr; } }
+  .ars {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px;
+    position: relative; overflow: hidden; transition: border-color .25s;
+  }
+  .ars::before {
+    content: ""; position: absolute; left: 0; top: 0; height: 100%; width: 3px;
+    background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .3s;
+  }
+  .ars:hover { border-color: var(--border-hi); }
+  .ars:hover::before { transform: scaleY(1); }
+  .ars h4 { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 12.5px; color: var(--muted); background: var(--surface-2);
+    border: 1px solid var(--border); padding: 5px 11px; border-radius: 7px; transition: all .2s;
+  }
+  .chip:hover { color: var(--text); border-color: var(--accent); }
+
+  /* ---------- contact / footer ---------- */
+  .contact { padding: 90px 0; border-top: 1px solid var(--border); }
+  .contact-inner { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+  @media (max-width: 720px) { .contact-inner { grid-template-columns: 1fr; align-items: start; } }
+  .contact h2 {
+    font-family: var(--display); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.05;
+  }
+  .contact h2 a { color: var(--accent); border-bottom: 2px solid transparent; transition: border-color .2s; }
+  .contact h2 a:hover { border-color: var(--accent); }
+  .contact .meta { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 18px; }
+  .contact-links { display: flex; flex-direction: column; gap: 12px; }
+  .contact-links a {
+    font-family: var(--mono); font-size: 13.5px; color: var(--muted);
+    display: inline-flex; align-items: center; gap: 10px; transition: color .2s;
+  }
+  .contact-links a:hover { color: var(--accent); }
+  .contact-links svg { width: 16px; height: 16px; }
+
+  footer { border-top: 1px solid var(--border); padding: 26px 0; }
+  .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .foot-inner span { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+
+  /* ---------- availability badge ---------- */
+  .avail {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .avail-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+    animation: pulse-green 2s ease-out infinite;
+  }
+  @keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+  }
+
+  /* ---------- career timeline ---------- */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 4px; top: 10px;
+    width: 1px; height: calc(100% - 10px);
+    background: linear-gradient(to bottom, var(--accent), rgba(45,212,191,0.04));
+  }
+  .tl-item { position: relative; padding-bottom: 36px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -32px; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--surface-2); border: 2px solid var(--border-hi);
+  }
+  .tl-item.current::before {
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(45,212,191,0.15);
+  }
+  .tl-role { font-family: var(--display); font-size: 1.08rem; font-weight: 600; line-height: 1.2; }
+  .tl-co { font-family: var(--mono); font-size: 12px; color: var(--accent); margin: 5px 0 3px; }
+  .tl-date { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-bottom: 10px; }
+  .tl-desc { font-size: 0.91rem; color: var(--muted); max-width: 60ch; line-height: 1.75; }
+
+  /* ---------- certifications ---------- */
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 820px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .cert-grid { grid-template-columns: 1fr; } }
+  .cert {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; display: flex; align-items: flex-start; gap: 16px;
+    transition: border-color .2s, transform .2s;
+  }
+  .cert:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+  .cert-icon {
+    width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 9.5px; font-weight: 600; text-align: center; line-height: 1.3;
+    background: var(--surface-2); border: 1px solid var(--border); color: var(--faint);
+  }
+  .cert.active .cert-icon { background: rgba(45,212,191,0.1); border-color: rgba(45,212,191,0.25); color: var(--accent); }
+  .cert.pending .cert-icon { background: rgba(251,191,36,0.07); border-color: rgba(251,191,36,0.3); color: var(--amber); }
+  .cert-name { font-size: 0.9rem; font-weight: 500; line-height: 1.4; color: var(--text); }
+  .cert-issuer { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 5px; }
+  .cert-date { font-family: var(--mono); font-size: 11px; margin-top: 3px; color: var(--muted); }
+  .cert.active .cert-date { color: var(--accent); }
+  .cert.pending .cert-date { color: var(--amber); }
+
+  /* ---------- resume section ---------- */
+  .resume-banner {
+    background: linear-gradient(160deg, var(--surface), #0c121b);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 40px 42px;
+    display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center;
+  }
+  @media (max-width: 720px) { .resume-banner { grid-template-columns: 1fr; } }
+  .resume-title {
+    font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .resume-role {
+    font-family: var(--mono); font-size: 12.5px; color: var(--accent); margin-bottom: 16px;
+  }
+  .resume-desc { color: var(--muted); font-size: 0.94rem; max-width: 48ch; line-height: 1.7; }
+  .resume-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  @media (max-width: 720px) { .resume-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; } }
+
+  /* ---------- new pub entry badge ---------- */
+  .new-badge {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--accent); border: 1px solid rgba(45,212,191,0.4);
+    padding: 2px 7px; border-radius: 4px; flex-shrink: 0;
+  }
+  @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .new-entry { animation: fadeSlideIn .5s ease forwards; }
+
+  /* ---------- reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+</style>
 </head>
 <body>
-    <div class="scroll-progress"></div>
-    <canvas id="neural-bg"></canvas>
 
-    <nav>
-        <a href="index.html" class="logo">
-            <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d2a5e"/><stop offset="100%" stop-color="#0a1f4a"/></linearGradient>
-                  <linearGradient id="bd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60d4fa"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient>
-                  <filter id="gl"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                </defs>
-                <rect width="100" height="100" rx="20" fill="url(#bg)"/>
-                <rect width="100" height="100" rx="20" fill="none" stroke="url(#bd)" stroke-width="4" filter="url(#gl)" opacity="0.9"/>
-                <text x="50" y="70" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="52" font-weight="900" fill="white">SI</text>
-              </svg>
-            <span class="logo-text">SAMSON</span>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="sigil">~/</span>samson.idowu<span class="cursor">_</span></a>
+    <div class="nav-links">
+      <a href="#work">work</a>
+      <a href="#project">project</a>
+      <a href="#research">research</a>
+      <a href="#stack">stack</a>
+      <a href="#experience">experience</a>
+      <a href="#certifications">certs</a>
+      <a href="#resume">resume</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="reveal">Security<br>engineering,<br><span class="stroke">at scale.</span></h1>
+      <p class="role reveal">I build and operate the <b>security infrastructure</b> organisations depend on &mdash; from architecting enterprise <b>SIEM platforms</b> and writing <b>detection logic</b> that fires on real threats, to hardening <b>cloud environments on AWS</b> with IAM guardrails, automated compliance, and infrastructure-as-code. Full-stack security: platform, detection, and cloud.</p>
+      <div class="cta-row reveal">
+        <a href="#research" class="btn btn-primary">View research &rarr;</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <a href="Samson_Idowu_Resume.pdf" download class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
         </a>
-        <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links">
-            <a href="index.html" class="nav-item active">HOME</a>
-            <a href="about.html" class="nav-item">ABOUT</a>
-            <a href="projects.html" class="nav-item">PROJECTS &amp; EXP</a>
-            <a href="contact.html" class="nav-item">CONTACT</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Samson Idowu</h1>
-            <h2 class="typing-text">
-                I am a <span class="txt-type" data-wait="2000" data-words='["Security Engineer", "SIEM Architect", "DevSecOps Engineer", "Security Researcher", "Threat Hunter"]'></span>
-            </h2>
-            <p>Senior Cybersecurity Engineer | SIEM &amp; Detection Engineering, Cloud Security &amp; DevSecOps</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.querySelector('.stats-section').scrollIntoView({behavior:'smooth'})">View Impact</button>
-                <a href="https://github.com/SamsonIdowu" target="_blank" rel="noopener noreferrer">
-                    <button class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</button>
-                </a>
-                <a href="https://www.linkedin.com/in/samson-idowu/" target="_blank" rel="noopener noreferrer">
-                    <button class="cv-download-btn cv-pulse"><i class="fab fa-linkedin-in"></i> LinkedIn</button>
-                </a>
-            </div>
-        </div>
-        <div class="hero-image-container">
-            <div class="hero-avatar-float">
-                <img src="work_pic.jpeg" alt="Samson Idowu" class="profile-pic">
-            </div>
-        </div>
-        <div class="scroll-down" onclick="document.querySelector('.stats-section').scrollIntoView({behavior:'smooth'})">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- TICKER STRIP -->
-    <div class="ticker-strip">
-        <div class="ticker-track">
-            <span class="ticker-item"><i class="fas fa-shield-alt"></i> SIEM ENGINEERING</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-bug"></i> DETECTION RULES</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-crosshairs"></i> MITRE ATT&amp;CK</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-cloud"></i> AWS STACK</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-code"></i> PCRE/PCRE2 REGEX</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-virus"></i> MALWARE ANALYSIS</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-layer-group"></i> TERRAFORM</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-network-wired"></i> DEVSECOPS</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-eye"></i> THREAT INTELLIGENCE</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fab fa-python"></i> PYTHON</span>
-            <span class="ticker-dot"></span>
-            <!-- duplicate for seamless loop -->
-            <span class="ticker-item"><i class="fas fa-shield-alt"></i> SIEM ENGINEERING</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-bug"></i> DETECTION RULES</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-crosshairs"></i> MITRE ATT&amp;CK</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-cloud"></i> AWS STACK</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-code"></i> PCRE/PCRE2 REGEX</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-virus"></i> MALWARE ANALYSIS</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-layer-group"></i> TERRAFORM</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-network-wired"></i> DEVSECOPS</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fas fa-eye"></i> THREAT INTELLIGENCE</span>
-            <span class="ticker-dot"></span>
-            <span class="ticker-item"><i class="fab fa-python"></i> PYTHON</span>
-            <span class="ticker-dot"></span>
-        </div>
+      </div>
+      <div class="socials reveal">
+        <a href="https://github.com/SamsonIdowu" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/samson-idowu/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+          LinkedIn
+        </a>
+      </div>
     </div>
 
-    <section class="stats-section scroll-animate">
-        <div class="stat-item"><h2 class="counter" data-target="6">0</h2><p>Years Experience</p></div>
-        <div class="stat-item"><h2 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--accent-color);font-family:'JetBrains Mono',monospace;line-height:1;">100K+</h2><p>Users Served</p></div>
-        <div class="stat-item"><h2 class="counter" data-target="45">0</h2><p>% Detection Coverage ↑</p></div>
-        <div class="stat-item"><h2 class="counter" data-target="60">0</h2><p>% Automation Improvement</p></div>
-    </section>
+    <div class="rule-card reveal" aria-label="Detection rule describing the engineer">
+      <div class="rule-head">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="fname">profile.rule.yml</span>
+      </div>
+      <div class="rule-body">
+<span class="ln"><span class="c"># engineer signature rule</span></span>
+<span class="ln"><span class="k">id</span><span class="arr">:</span> <span class="v">100247</span></span>
+<span class="ln"><span class="k">level</span><span class="arr">:</span> <span class="lvl">12</span> <span class="c"># high signal</span></span>
+<span class="ln"><span class="k">role</span><span class="arr">:</span> <span class="v">Senior Security &amp; Cloud Engineer</span></span>
+<span class="ln"><span class="k">focus</span><span class="arr">:</span></span>
+<span class="ln">  <span class="arr">-</span> <span class="v">SIEM architecture &amp; detection engineering</span></span>
+<span class="ln">  <span class="arr">-</span> <span class="v">cloud security on AWS &amp; multi-cloud</span></span>
+<span class="ln">  <span class="arr">-</span> <span class="v">incident response &amp; threat hunting</span></span>
+<span class="ln"><span class="k">clouds</span><span class="arr">:</span> <span class="v">AWS</span> <span class="c"># primary, multi-cloud capable</span></span>
+<span class="ln"><span class="k">techniques</span><span class="arr">:</span> <span class="v">IaC &middot; PCRE2 &middot; MITRE ATT&amp;CK &middot; CTI</span></span>
+<span class="ln"><span class="k">reach</span><span class="arr">:</span> <span class="v">100,000+ professionals</span></span>
+        <div class="status"><span class="pulse"></span><span id="ruleStatus">EVALUATING&hellip;</span></div>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <section class="grid-container">
-        <div class="glow-card scroll-animate">
-            <div class="card-content">
-                <h3>Enterprise SIEM Architecture</h3>
-                <p class="tech-stack">Wazuh &bull; Terraform &bull; AWS EKS &bull; NIST 800-53</p>
-                <p><strong>Current Role @ Wazuh:</strong> Architecting enterprise-scale SIEM solutions across multi-cloud environments, serving 100,000+ security professionals.</p>
-                <button class="card-btn" onclick="openModal('siem')">View Details</button>
-            </div>
-        </div>
-        <div class="glow-card scroll-animate">
-            <div class="card-content">
-                <h3>Detection Rule Engineering</h3>
-                <p class="tech-stack">PCRE/PCRE2 &bull; MITRE ATT&amp;CK &bull; Wazuh CTI</p>
-                <p><strong>Threat Detection:</strong> Developing detection rules mapped to MITRE ATT&CK techniques using PCRE/PCRE2 regex, enhancing coverage by 45%.</p>
-                <button class="card-btn" onclick="openModal('detection')">View Details</button>
-            </div>
-        </div>
-        <div class="glow-card scroll-animate">
-            <div class="card-content">
-                <h3>Security Research & Publications</h3>
-                <p class="tech-stack">Malware Analysis &bull; Threat Intel &bull; IOC/TTP Mapping</p>
-                <p><strong>Research:</strong> Multiple peer-reviewed articles and official documentation serving 100,000+ security professionals worldwide.</p>
-                <a href="https://github.com/SamsonIdowu/projects-publications/blob/main/publications.md" target="_blank" rel="noopener noreferrer">
-                    <button class="card-btn">View Publications</button>
-                </a>
-            </div>
-        </div>
-    </section>
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="num"><span class="count" data-to="6">0</span><span class="suf">+</span></div><div class="lbl">years in security</div></div>
+    <div class="stat reveal"><div class="num"><span class="count" data-to="100">0</span><span class="suf">K+</span></div><div class="lbl">professionals reached</div></div>
+    <div class="stat reveal"><div class="num"><span class="count" data-to="200">0</span><span class="suf">+</span></div><div class="lbl">detection rules engineered</div></div>
+    <div class="stat reveal"><div class="num"><span class="count" data-to="15">0</span></div><div class="lbl">publications &amp; projects</div></div>
+  </div>
+</section>
 
-    <!-- SKILL BARS + RADAR -->
-    <section class="skills-proficiency-section scroll-animate">
-        <div class="skill-bars-wrap">
-            <h3>Skill Proficiency</h3>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>Security Engineering</span><span>95%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>SIEM / Detection</span><span>95%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>Cloud Engineering (AWS)</span><span>88%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>DevSecOps / CI/CD</span><span>85%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>Python / Bash / PowerShell</span><span>82%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>Threat Intelligence</span><span>90%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-            </div>
-        </div>
-        <div class="radar-chart-wrap">
-            <h3>Competency Radar</h3>
-            <svg id="radarSvg" class="radar-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"></svg>
-        </div>
-    </section>
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">[ WHAT I DO ]</span>
+      <h2>Security at every layer of the stack.</h2>
+      <p>Platform engineering, detection logic, cloud security, and offensive validation &mdash; across the full security lifecycle.</p>
+    </div>
+    <div class="cap-grid cap-grid-4">
+      <div class="cap reveal">
+        <span class="tag">// platform</span>
+        <h3>SIEM Architecture</h3>
+        <p>Enterprise-scale SIEM across multi-cloud environments &mdash; designed for resilience, multi-site, and the volume real SOCs run at.</p>
+        <div class="stack">Wazuh &middot; Splunk &middot; AWS EKS &middot; Terraform &middot; NIST 800-53</div>
+      </div>
+      <div class="cap reveal">
+        <span class="tag">// logic</span>
+        <h3>Detection Engineering</h3>
+        <p>200+ detection rules mapped to MITRE ATT&amp;CK using PCRE/PCRE2 &mdash; cutting noise, raising coverage by 45%, and driving threat hunting operations.</p>
+        <div class="stack">PCRE2 &middot; MITRE ATT&amp;CK &middot; Wazuh CTI &middot; YARA &middot; Suricata</div>
+      </div>
+      <div class="cap reveal">
+        <span class="tag">// cloud</span>
+        <h3>Cloud Security Engineering</h3>
+        <p>Hardened, multi-account AWS environments built entirely in code &mdash; IAM guardrails, centralized logging, GuardDuty, and automated compliance. Patterns that travel across clouds.</p>
+        <div class="stack">AWS &middot; Terraform &middot; IAM/SCPs &middot; GuardDuty &middot; CloudTrail</div>
+      </div>
+      <div class="cap reveal">
+        <span class="tag">// defense</span>
+        <h3>Incident Response &amp; Forensics</h3>
+        <p>End-to-end IR from detection through containment &mdash; memory forensics with Volatility3, IOC extraction, root cause analysis, and post-incident reporting at a 98% SLA.</p>
+        <div class="stack">Volatility3 &middot; Wireshark &middot; STRIDE &middot; NIST CSF &middot; CAINE</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="skills-section scroll-animate">
-        <h2 class="skills-title">Technical Arsenal</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h4>Security Core</h4>
-                <div class="skills-wrapper">
-                    <span class="skill-tag accent">SIEM Engineering</span>
-                    <span class="skill-tag accent">Detection Rules</span>
-                    <span class="skill-tag dark">Malware Analysis</span>
-                    <span class="skill-tag dark">Threat Modeling</span>
-                    <span class="skill-tag dark">Pen Testing</span>
-                    <span class="skill-tag dark">Digital Forensics</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h4>Cloud &amp; DevSecOps</h4>
-                <div class="skills-wrapper">
-                    <span class="skill-tag accent">AWS Stack</span>
-                    <span class="skill-tag accent">Terraform</span>
-                    <span class="skill-tag dark">Ansible</span>
-                    <span class="skill-tag dark">Docker</span>
-                    <span class="skill-tag dark">Kubernetes</span>
-                    <span class="skill-tag dark">GitHub Actions</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h4>Frameworks &amp; Standards</h4>
-                <div class="skills-wrapper">
-                    <span class="skill-tag accent">MITRE ATT&amp;CK</span>
-                    <span class="skill-tag accent">NIST CSF</span>
-                    <span class="skill-tag dark">CIS Benchmarks</span>
-                    <span class="skill-tag dark">ISO 27001</span>
-                    <span class="skill-tag dark">STRIDE</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section" id="experience" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">[ CAREER ]</span>
+      <h2>Engineering security at every layer.</h2>
+      <p>A clear progression from infrastructure operations to enterprise security engineering and cloud architecture.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item current reveal">
+        <div class="tl-role">Security Engineer</div>
+        <div class="tl-co">Wazuh Inc. &middot; San Jose, USA (Remote)</div>
+        <div class="tl-date">May 2023 &mdash; Present</div>
+        <div class="tl-desc">Engineered 200+ custom MITRE ATT&amp;CK-mapped detection rules, architected multi-node SIEM clusters across AWS and Azure, designed cloud security monitoring pipelines with GuardDuty and Security Hub, and automated CIS Benchmark compliance across 1,000+ endpoints. Research adopted by 100K+ security professionals worldwide.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-role">Security Researcher</div>
+        <div class="tl-co">Innopolis University &middot; Innopolis, Russia</div>
+        <div class="tl-date">Aug 2022 &mdash; May 2024</div>
+        <div class="tl-desc">Conducted memory forensics with Volatility3, hardened AWS infrastructure with least-privilege IAM and GuardDuty, performed STRIDE threat modeling identifying 25+ threat scenarios, and integrated SAST/DAST pipelines (Snyk, SonarQube, StackHawk) reducing critical vulnerabilities by 35%.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-role">Infrastructure Security Engineer</div>
+        <div class="tl-co">Hardcore Biometric Systems &middot; Abuja, Nigeria</div>
+        <div class="tl-date">Nov 2021 &mdash; Jul 2022</div>
+        <div class="tl-desc">Deployed a centralised SIEM across 200+ servers ingesting Windows Event Logs, Syslog, and firewall syslogs. Configured Suricata IDS/IPS, built and tuned SIEM correlation rules, and automated infrastructure provisioning with Terraform, Ansible, Kubernetes and Docker &mdash; cutting deployment time by 50%.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-role">Technical Support Engineer</div>
+        <div class="tl-co">Zeta-Web &middot; Abuja, Nigeria</div>
+        <div class="tl-date">Aug 2019 &mdash; Oct 2021</div>
+        <div class="tl-desc">Administered and hardened Linux and Windows systems to CIS baselines, maintained patch compliance across 400+ endpoints, and monitored enterprise infrastructure using PRTG and WhatsUp Gold, reducing network downtime by 35%.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-role">IT Technician</div>
+        <div class="tl-co">Multichoice &middot; Port Harcourt, Nigeria</div>
+        <div class="tl-date">Dec 2018 &mdash; Aug 2019</div>
+        <div class="tl-desc">Supported 300+ end users across LAN, WAN, and VSAT environments. Resolved OS and application issues reducing business downtime by 60%, and produced IT documentation covering incident workflows and network topology.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>Contact: mailtosamsoni@gmail.com | Abuja, Nigeria</p>
-            <div class="footer-social">
-                <a href="https://github.com/SamsonIdowu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/samson-idowu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:mailtosamsoni@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
+<section class="section" id="project" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">[ FEATURED BUILDS ]</span>
+      <h2>Projects.</h2>
+      <p>Production-grade security engineering work &mdash; from cloud infrastructure to defence frameworks.</p>
+    </div>
+    <div class="features-list">
 
-    <!-- MODAL -->
-    <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()" aria-label="Close">&times;</button>
-            <h2 id="modalTitle" style="padding:2.5rem 2.5rem 0;"></h2>
-            <div class="modal-body">
-                <div id="modalDescription"></div>
-                <div class="code-block" id="modalCodeBlock"></div>
-                <div class="modal-link-container">
-                    <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer">View Repository <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
+      <div class="feature solo reveal">
+        <div class="feature-main">
+          <span class="feat-tag">// cloud security</span>
+          <h3>AWS IAM Cloud Security Portfolio <span class="feat-wip">in progress</span></h3>
+          <p class="lede">A production-grade, multi-account AWS security environment built end to end in Terraform. Two-account organisation (Security + Dev) with centralised logging, continuous IAM audit, and preventative guardrails that block dangerous actions before they happen &mdash; every resource defined as code.</p>
+          <div class="stack">
+            <b>infra:</b> Terraform &middot; AWS Organizations &middot; S3/DynamoDB state<br>
+            <b>visibility:</b> CloudTrail &middot; AWS Config &middot; IAM Access Analyzer<br>
+            <b>prevention:</b> Service Control Policies &middot; permission boundaries &middot; break-glass roles<br>
+            <b>automation:</b> Python &middot; Lambda &middot; EventBridge
+          </div>
+          <a href="https://github.com/SNE22-INNOPOLIS/AWS-IAM" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub &rarr;</a>
         </div>
+      </div>
+
+      <div class="feature solo reveal">
+        <div class="feature-main">
+          <span class="feat-tag">// cyber defence framework</span>
+          <h3>ShadowMatrix CDF <span class="feat-wip">in progress</span></h3>
+          <p class="lede">A unified cyber defence framework purpose-built to act as a coordination layer for SOC operations &mdash; integrating threat detection, intelligence correlation, and response orchestration across distributed environments. Designed to bridge the gap between raw telemetry and actionable defence.</p>
+          <div class="stack">
+            <b>core:</b> Threat Detection &middot; Intelligence Correlation &middot; Response Orchestration<br>
+            <b>integration:</b> SIEM &middot; CTI Feeds &middot; MITRE ATT&amp;CK &middot; SOAR<br>
+            <b>scope:</b> SOC Automation &middot; Distributed Environments &middot; Multi-source Telemetry
+          </div>
+          <a href="https://www.theshadowmatrix.org/" target="_blank" rel="noopener" class="btn btn-primary">Visit project &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">[ PUBLISHED WORK ]</span>
+      <h2>Research &amp; documentation.</h2>
+      <p>Peer-reviewed journals, official product documentation, and technical deep-dives &mdash; read by security teams worldwide.</p>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-    const projectData = {
-        'siem': {
-            title: 'Enterprise SIEM Architecture',
-            desc: `<strong>Overview:</strong><br>Architecting and deploying enterprise-scale SIEM solutions across multi-cloud environments at Wazuh Inc.<br><br><strong>Key Achievements:</strong><ul><li>99.9% availability using Terraform, Ansible, EKS, and CloudFormation</li><li>Security reference architectures aligned with NIST 800-53 controls</li><li>CIS Benchmark baseline configs for Linux, Windows, macOS</li><li>60% reduction in manual infrastructure effort through automation</li></ul>`,
-            code: `# Wazuh Manager — Terraform deployment
-resource "aws_eks_cluster" "wazuh" {
-  name     = "wazuh-siem-cluster"
-  role_arn = aws_iam_role.eks.arn
-  vpc_config {
-    subnet_ids = var.subnet_ids
+    <div class="filters reveal">
+      <button class="filter active" data-f="all">All <span class="count">15</span></button>
+      <button class="filter" data-f="academic">Peer-reviewed <span class="count">3</span></button>
+      <button class="filter" data-f="docs">Blogposts <span class="count">7</span></button>
+      <button class="filter" data-f="article">Articles <span class="count">3</span></button>
+      <button class="filter" data-f="project">Projects <span class="count">2</span></button>
+    </div>
+
+    <div class="pub-list reveal" id="pubList">
+      <!-- projects: pinned top, no data-date (ongoing — excluded from "new" badge logic) -->
+      <a class="pub" data-cat="project" href="https://www.theshadowmatrix.org/" target="_blank" rel="noopener">
+        <span class="src project">PROJECT</span>
+        <span class="title">ShadowMatrix CDF</span>
+        <span class="wip">in progress</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="project" href="https://github.com/SNE22-INNOPOLIS/AWS-IAM" target="_blank" rel="noopener">
+        <span class="src project">PROJECT</span>
+        <span class="title">Cloud Security Lab: AWS-IAM</span>
+        <span class="wip">in progress</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <!-- publications: sorted newest → oldest; data-date drives the "new" badge (JS assigns it) -->
+      <a class="pub" data-cat="docs" data-date="2025-01-20" href="https://wazuh.com/blog/wazuh-ruleset-as-code-rac/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Wazuh ruleset as code (RaC)</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="docs" data-date="2024-11-12" href="https://wazuh.com/blog/wazuh-multi-site-implementation/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Wazuh multi-site implementation</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="docs" data-date="2024-08-28" href="https://wazuh.com/blog/detecting-deerstealer-malware-with-wazuh/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Detecting DeerStealer malware with Wazuh</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="docs" data-date="2024-06-18" href="https://wazuh.com/blog/detecting-razr-ransomware-with-wazuh/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Detecting Razr ransomware with Wazuh</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="docs" data-date="2024-02-14" href="https://wazuh.com/blog/detecting-dns-tunneling-attacks-with-wazuh/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Detecting DNS tunneling attacks with Wazuh</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="docs" data-date="2023-11-08" href="https://wazuh.com/blog/monitoring-macos-resources/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Monitoring macOS resources with Wazuh</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="docs" data-date="2023-07-25" href="https://wazuh.com/blog/monitoring-windows-resources-with-performance-counters/" target="_blank" rel="noopener">
+        <span class="src docs">WAZUH</span>
+        <span class="title">Monitoring Windows resources with Performance Counters</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="article" data-date="2023-03-10" href="https://samsonidowu.medium.com/open-source-siem-solution-using-wazuh-and-thehive-2b3ffdabc068" target="_blank" rel="noopener">
+        <span class="src article">MEDIUM</span>
+        <span class="title">Open-Source SIEM Solution Using Wazuh and TheHive</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="article" data-date="2022-10-05" href="https://blog.devops.dev/implementing-devsecops-tool-chain-based-on-open-source-technology-5d269b519aa9" target="_blank" rel="noopener">
+        <span class="src article">MEDIUM</span>
+        <span class="title">Implementing a DevSecOps Tool Chain Based on Open-Source Technology</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="article" data-date="2022-06-22" href="https://blog.devops.dev/setting-up-ci-cd-infrastructure-with-gitlab-ci-b74883750b5a" target="_blank" rel="noopener">
+        <span class="src article">MEDIUM</span>
+        <span class="title">Setting Up CI/CD Infrastructure with GitLab CI</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="academic" data-date="2023-04-20" href="https://link.springer.com/chapter/10.1007/978-3-032-09694-4_22" target="_blank" rel="noopener">
+        <span class="src academic">SPRINGER</span>
+        <span class="title">An AI-Based Security Analysis Solution for DevSecOps</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="academic" data-date="2022-12-10" href="https://journaljerr.com/index.php/JERR/article/view/1203" target="_blank" rel="noopener">
+        <span class="src academic">JERR</span>
+        <span class="title">Building a Scalable Security Operations Center: A Focus on Open-Source Tools</span>
+        <span class="go">&#x2197;</span>
+      </a>
+      <a class="pub" data-cat="academic" data-date="2022-08-15" href="https://saudijournals.com/media/articles/SJEAT_97_334-339.pdf" target="_blank" rel="noopener">
+        <span class="src academic">SJEAT</span>
+        <span class="title">Alert Prioritization Techniques in Security Monitoring: Aggregated Severity &amp; System Attributes of Critical Infrastructure</span>
+        <span class="go">&#x2197;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">[ SKILLS &amp; TOOLS ]</span>
+      <h2>Built from real-world operations.</h2>
+      <p>Skills and tools accumulated across 6+ years of security engineering, research, and infrastructure roles.</p>
+    </div>
+    <div class="ars-grid">
+
+      <div class="ars reveal">
+        <h4>// security operations</h4>
+        <div class="chips">
+          <span class="chip">SIEM Engineering</span>
+          <span class="chip">Detection Engineering</span>
+          <span class="chip">Threat Hunting</span>
+          <span class="chip">Alert Tuning &amp; Correlation</span>
+          <span class="chip">Log Source Onboarding</span>
+          <span class="chip">Identity &amp; Access Management</span>
+          <span class="chip">Malware Analysis</span>
+          <span class="chip">Threat Intelligence</span>
+          <span class="chip">Incident Response</span>
+          <span class="chip">Digital Forensics</span>
+          <span class="chip">Zero Trust Architecture</span>
+          <span class="chip">Purple Team Operations</span>
+          <span class="chip">Security Architecture</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// siem, xdr &amp; monitoring</h4>
+        <div class="chips">
+          <span class="chip">Wazuh SIEM &amp; XDR</span>
+          <span class="chip">Splunk</span>
+          <span class="chip">Microsoft Sentinel</span>
+          <span class="chip">FortiSIEM</span>
+          <span class="chip">ELK Stack</span>
+          <span class="chip">NewRelic</span>
+          <span class="chip">Shuffle SOAR</span>
+          <span class="chip">PRTG Network Monitor</span>
+          <span class="chip">WhatsUp Gold</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// security tools</h4>
+        <div class="chips">
+          <span class="chip">Volatility3</span>
+          <span class="chip">Burp Suite</span>
+          <span class="chip">Nmap</span>
+          <span class="chip">Wireshark</span>
+          <span class="chip">Metasploit</span>
+          <span class="chip">Hashcat</span>
+          <span class="chip">OWASP ZAP</span>
+          <span class="chip">Caine Linux</span>
+          <span class="chip">Suricata IDS/IPS</span>
+          <span class="chip">YARA</span>
+          <span class="chip">HashiCorp Vault</span>
+          <span class="chip">StackHawk</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// cloud security (aws)</h4>
+        <div class="chips">
+          <span class="chip">GuardDuty</span>
+          <span class="chip">Security Hub</span>
+          <span class="chip">CloudTrail</span>
+          <span class="chip">AWS Config</span>
+          <span class="chip">IAM / SCPs</span>
+          <span class="chip">KMS</span>
+          <span class="chip">Shield / WAF</span>
+          <span class="chip">Secrets Manager</span>
+          <span class="chip">Access Analyzer</span>
+          <span class="chip">EC2 / EKS / RDS</span>
+          <span class="chip">VPC / S3 / Lambda</span>
+          <span class="chip">Route53 / DynamoDB</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// automation &amp; devsecops</h4>
+        <div class="chips">
+          <span class="chip">Terraform</span>
+          <span class="chip">Ansible</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Jenkins</span>
+          <span class="chip">Snyk</span>
+          <span class="chip">SonarQube</span>
+          <span class="chip">SAST / DAST</span>
+          <span class="chip">Dependency Scanning</span>
+          <span class="chip">Vagrant</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// networking</h4>
+        <div class="chips">
+          <span class="chip">Firewall Config</span>
+          <span class="chip">OSPF / BGP</span>
+          <span class="chip">VPN / VLAN / WLAN</span>
+          <span class="chip">DHCP / DNS</span>
+          <span class="chip">Cisco</span>
+          <span class="chip">Fortinet</span>
+          <span class="chip">Mikrotik</span>
+          <span class="chip">Ubiquiti</span>
+          <span class="chip">Checkpoint</span>
+          <span class="chip">Sophos</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// frameworks &amp; standards</h4>
+        <div class="chips">
+          <span class="chip">MITRE ATT&amp;CK</span>
+          <span class="chip">NIST 800-53</span>
+          <span class="chip">NIST CSF</span>
+          <span class="chip">ISO 27001</span>
+          <span class="chip">PCI-DSS</span>
+          <span class="chip">CIS Benchmarks</span>
+          <span class="chip">STRIDE</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// programming &amp; scripting</h4>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">PowerShell</span>
+          <span class="chip">Bash</span>
+          <span class="chip">PCRE / PCRE2</span>
+          <span class="chip">YAML</span>
+          <span class="chip">JSON</span>
+        </div>
+      </div>
+
+      <div class="ars reveal">
+        <h4>// platforms &amp; os</h4>
+        <div class="chips">
+          <span class="chip">Linux</span>
+          <span class="chip">Windows</span>
+          <span class="chip">macOS</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Azure</span>
+          <span class="chip">GCP</span>
+          <span class="chip">VMware ESXi</span>
+          <span class="chip">HyperV</span>
+          <span class="chip">OpenStack</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certifications" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">[ CREDENTIALS ]</span>
+      <h2>Certifications.</h2>
+      <p>Validated expertise across security operations, cloud architecture, and network security.</p>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert pending">
+        <div class="cert-icon">CISSP</div>
+        <div>
+          <div class="cert-name">Certified Information Systems Security Professional</div>
+          <div class="cert-issuer">(ISC)&sup2;</div>
+          <div class="cert-date">In progress</div>
+        </div>
+      </div>
+      <div class="cert active">
+        <div class="cert-icon">AWS<br>SAA</div>
+        <div>
+          <div class="cert-name">AWS Certified Solutions Architect &mdash; Associate</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+          <div class="cert-date">Dec 2024</div>
+        </div>
+      </div>
+      <div class="cert active">
+        <div class="cert-icon">CNSP</div>
+        <div>
+          <div class="cert-name">Certified Network Security Practitioner</div>
+          <div class="cert-issuer">SecOps Group</div>
+          <div class="cert-date">Nov 2024</div>
+        </div>
+      </div>
+      <div class="cert">
+        <div class="cert-icon">NSE<br>1&ndash;3</div>
+        <div>
+          <div class="cert-name">Network Security Associate NSE 1, 2 &amp; 3</div>
+          <div class="cert-issuer">Fortinet</div>
+          <div class="cert-date">Mar 2022</div>
+        </div>
+      </div>
+      <div class="cert">
+        <div class="cert-icon">AZ<br>900</div>
+        <div>
+          <div class="cert-name">Azure Fundamentals AZ-900 &amp; Security Fundamentals SC-900</div>
+          <div class="cert-issuer">Microsoft</div>
+          <div class="cert-date">Jul 2021</div>
+        </div>
+      </div>
+      <div class="cert">
+        <div class="cert-icon">SEC+</div>
+        <div>
+          <div class="cert-name">CompTIA Security+</div>
+          <div class="cert-issuer">CompTIA</div>
+          <div class="cert-date">May 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resume" style="padding-top:0;">
+  <div class="wrap">
+    <div class="resume-banner reveal">
+      <div>
+        <span class="eyebrow">[ RESUME ]</span>
+        <h2 class="resume-title">Samson Idowu</h2>
+        <p class="resume-role">Senior Cybersecurity Engineer &middot; 6+ years &middot; Abuja, Nigeria</p>
+        <p class="resume-desc">SIEM architecture, detection engineering, and cloud security on AWS. Open to senior security roles and consulting engagements globally.</p>
+      </div>
+      <div class="resume-actions">
+        <a href="Samson_Idowu_Resume.pdf" download class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+        <a href="Samson_Idowu_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">View PDF &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-inner">
+    <div class="reveal">
+      <span class="eyebrow">[ GET IN TOUCH ]</span>
+      <h2>Let&rsquo;s talk<br>security &amp; cloud. <a href="mailto:mailtosamsoni@gmail.com">&rarr;</a></h2>
+      <div class="meta">// based in Abuja, Nigeria &mdash; working globally</div>
+    </div>
+    <div class="contact-links reveal">
+      <a href="mailto:mailtosamsoni@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        mailtosamsoni@gmail.com
+      </a>
+      <a href="https://github.com/SamsonIdowu" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        github.com/SamsonIdowu
+      </a>
+      <a href="https://www.linkedin.com/in/samson-idowu/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+        in/samson-idowu
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>&copy; <span id="yr"></span> Samson Idowu</span>
+    <span>built for signal, not noise</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (Math.min(i, 6) * 60) + 'ms';
+    io.observe(el);
+  });
+
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      statsSection.querySelectorAll('[data-to]').forEach(el => { el.textContent = el.dataset.to; });
+    } else {
+      const statsIO = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        statsIO.disconnect();
+        statsSection.querySelectorAll('.stat').forEach((stat, i) => {
+          const el = stat.querySelector('[data-to]');
+          if (!el) return;
+          const to = +el.dataset.to;
+          setTimeout(() => {
+            const dur = 1800, t0 = performance.now();
+            const step = (t) => {
+              const p = Math.min((t - t0) / dur, 1);
+              const eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = Math.round(eased * to);
+              if (p < 1) requestAnimationFrame(step);
+              else { el.textContent = to; stat.classList.add('counted'); }
+            };
+            requestAnimationFrame(step);
+          }, i * 130);
+        });
+      }, { threshold: 0.3 });
+      statsIO.observe(statsSection);
+    }
   }
-}
 
-resource "aws_cloudwatch_log_group" "wazuh" {
-  name              = "/wazuh/manager"
-  retention_in_days = 90
-}`,
-            link: 'https://github.com/SamsonIdowu'
-        },
-        'detection': {
-            title: 'Detection Rule Engineering',
-            desc: `<strong>Overview:</strong><br>Developing MITRE ATT&CK-mapped detection rules using PCRE/PCRE2 regex for Wazuh SIEM.<br><br><strong>Impact:</strong> 45% enhancement in threat detection coverage<br><br><strong>Techniques:</strong><ul><li>PCRE/PCRE2 regex pattern development for IOC detection</li><li>ATT&CK technique mapping (T1059, T1078, T1486, etc.)</li><li>Malware analysis for TTP extraction contributing to Wazuh CTI</li></ul>`,
-            code: `<!-- Wazuh detection rule — MITRE T1059.001 -->
-<rule id="100001" level="10">
-  <if_group>windows</if_group>
-  <field name="win.eventdata.commandLine"
-    type="pcre2">(?i)(powershell|pwsh).*(-enc|-e\s+|-nop|-w\s+hidden)</field>
-  <description>Suspicious PowerShell execution detected</description>
-  <mitre>
-    <id>T1059.001</id>
-  </mitre>
-</rule>`,
-            link: 'https://github.com/SamsonIdowu/projects-publications/blob/main/publications.md'
-        }
-    };
-    window.openModal = function(id) {
-        const data = projectData[id]; if (!data) return;
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalDescription').innerHTML = data.desc;
-        const link = document.getElementById('modalLink');
-        link.href = data.link; link.style.display = data.link === '#' ? 'none' : 'inline-flex';
-        let code = data.code.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')
-            .replace(/(resource|var|name|description|def|import|from|return|class)\b/g,'<span class="code-keyword">$1</span>');
-        document.getElementById('modalCodeBlock').innerHTML = '<code>' + code + '</code>';
-        document.getElementById('projectModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    };
-    window.closeModal = function() {
-        document.getElementById('projectModal').style.display = 'none';
-        document.body.style.overflow = '';
-    };
-    window.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-    document.getElementById('projectModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
-    </script>
+  const status = document.getElementById('ruleStatus');
+  if (status && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setTimeout(() => { status.textContent = 'RULE FIRED ✓'; }, 1400);
+  } else if (status) {
+    status.textContent = 'RULE FIRED ✓';
+  }
+
+  const bar = document.querySelector('.progress-bar i');
+  if (bar) {
+    const barIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { bar.style.width = bar.dataset.w + '%'; barIO.unobserve(bar); }
+      });
+    }, { threshold: 0.5 });
+    barIO.observe(bar);
+  }
+
+  function applyFilter(f) {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.filter[data-f="${f}"]`).classList.add('active');
+    document.querySelectorAll('.pub').forEach(p => p.classList.toggle('hide', f !== 'all' && p.dataset.cat !== f));
+  }
+
+  function updateCounts() {
+    const all = document.querySelectorAll('#pubList .pub');
+    const counts = { all: all.length, docs: 0, academic: 0, article: 0, project: 0 };
+    all.forEach(p => { if (p.dataset.cat in counts) counts[p.dataset.cat]++; });
+    document.querySelectorAll('.filter').forEach(btn => {
+      const cnt = btn.querySelector('.count');
+      if (cnt && btn.dataset.f in counts) cnt.textContent = counts[btn.dataset.f];
+    });
+  }
+
+  document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.f)));
+
+  // Assign the "new" badge to whichever published item has the most recent data-date.
+  // Projects (no data-date) are excluded. Called on load and after every sync.
+  function assignNewBadge() {
+    const pubs = [...document.querySelectorAll('#pubList .pub[data-date]')];
+    if (!pubs.length) return;
+    pubs.forEach(p => { const b = p.querySelector('.new-badge'); if (b) b.remove(); });
+    const latest = pubs.reduce((a, b) => (a.dataset.date >= b.dataset.date ? a : b));
+    const go = latest.querySelector('.go');
+    const badge = document.createElement('span');
+    badge.className = 'new-badge';
+    badge.textContent = 'new';
+    latest.insertBefore(badge, go);
+  }
+  assignNewBadge();
+
+  // ---------- Auto-sync from GitHub publications.md ----------
+  (async function syncPublications() {
+    const RAW = 'https://raw.githubusercontent.com/SamsonIdowu/projects-publications/main/publications.md';
+
+    function categorize(url) {
+      if (/wazuh\.com/.test(url))          return { cat: 'docs',     src: 'WAZUH',      cls: 'docs'     };
+      if (/springer\.com/.test(url))       return { cat: 'academic', src: 'SPRINGER',   cls: 'academic' };
+      if (/journaljerr\.com/.test(url))    return { cat: 'academic', src: 'JERR',       cls: 'academic' };
+      if (/saudijournals\.com/.test(url))  return { cat: 'academic', src: 'SJEAT',      cls: 'academic' };
+      if (/medium\.com/.test(url))         return { cat: 'article',  src: 'MEDIUM',     cls: 'article'  };
+      if (/devops\.dev/.test(url))         return { cat: 'article',  src: 'MEDIUM',     cls: 'article'  };
+      if (/github\.com/.test(url))         return { cat: 'project',  src: 'PROJECT',    cls: 'project'  };
+      return                                       { cat: 'project',  src: 'PROJECT',    cls: 'project'  };
+    }
+
+    try {
+      const res = await fetch(RAW);
+      if (!res.ok) return;
+      const text = await res.text();
+
+      const list = document.getElementById('pubList');
+      const norm = u => u.replace(/\/$/, '').toLowerCase();
+      const existingUrls = new Set(
+        [...list.querySelectorAll('a.pub')].map(a => norm(a.getAttribute('href')))
+      );
+
+      const newItems = [];
+      for (const line of text.split('\n')) {
+        const m = line.match(/^-\s+\[([^\]]+)\]\(([^)]+)\)/);
+        if (!m) continue;
+        const [, title, url] = m;
+        if (existingUrls.has(norm(url))) continue;
+
+        const { cat, src, cls } = categorize(url);
+        const wip = line.includes('`in progress`');
+        // parse date from markdown comment <!-- YYYY-MM-DD --> or fall back to today
+        const dateMatch = line.match(/<!--\s*(\d{4}-\d{2}-\d{2})\s*-->/);
+        const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString().slice(0, 10);
+
+        const a = document.createElement('a');
+        a.className = 'pub new-entry';
+        a.dataset.cat = cat;
+        a.dataset.date = pubDate;
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.innerHTML =
+          `<span class="src ${cls}">${src}</span>` +
+          `<span class="title">${title}</span>` +
+          (wip ? `<span class="wip">in progress</span>` : '') +
+          `<span class="go">&#x2197;</span>`;
+        newItems.push(a);
+        existingUrls.add(norm(url));
+      }
+
+      if (newItems.length > 0) {
+        // insert after pinned projects, newest first
+        const anchor = list.querySelector('.pub:not([data-cat="project"])');
+        newItems.reverse().forEach(a => list.insertBefore(a, anchor || null));
+        updateCounts();
+        const active = document.querySelector('.filter.active');
+        if (active) applyFilter(active.dataset.f);
+        assignNewBadge(); // re-evaluate which item is truly the newest
+      }
+    } catch (_) { /* network unavailable — fail silently */ }
+  })();
+</script>
 </body>
 </html>
